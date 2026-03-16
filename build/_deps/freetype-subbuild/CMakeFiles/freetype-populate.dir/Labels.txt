@@ -1,0 +1,14 @@
+# Target labels
+ freetype-populate
+# Source files and their labels
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/freetype-populate
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/f76e467857e6762cb27e24539e78db08/freetype-populate.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/b9bc5af28bfcca56fc29506e80820eff/freetype-populate-complete.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-build.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-configure.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-download.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-install.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-mkdir.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-patch.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-test.rule
+D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/dc2d221cfcca0629e3c42066c1b15e58/freetype-populate-update.rule

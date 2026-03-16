@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/8bd589a6850dfa1cbb72c075b5fe5e41/sfml-populate.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/42d83e4cf79ee16d060078e0abd32cd5/sfml-populate-complete.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-build.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-configure.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-download.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-install.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-patch.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-test.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/sfml-subbuild/CMakeFiles/5e89557b39d6f266220991c48d4a9d26/sfml-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sfml-populate"
+		],
+		"name" : "sfml-populate"
+	}
+}

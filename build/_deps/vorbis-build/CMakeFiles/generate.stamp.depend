@@ -1,0 +1,8 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckLibraryExists.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/GNUInstallDirs.cmake
+D:/coding/Dead_Cell/build/_deps/vorbis-src/CMakeLists.txt
+D:/coding/Dead_Cell/build/_deps/vorbis-src/vorbis.pc.in
+D:/coding/Dead_Cell/build/_deps/vorbis-src/vorbisenc.pc.in
+D:/coding/Dead_Cell/build/_deps/vorbis-src/vorbisfile.pc.in

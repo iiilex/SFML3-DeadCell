@@ -1,0 +1,154 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-MKDIR.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/tmp/vorbis-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-DOWNLOAD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/tmp/vorbis-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-UPDATE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\vorbis-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/tmp/vorbis-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-PATCH.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\vorbis-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DVORBIS_DIR=D:/coding/Dead_Cell/build/_deps/vorbis-src -P D:/coding/Dead_Cell/build/_deps/sfml-src/tools/vorbis/PatchVorbis.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-CONFIGURE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-BUILD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-INSTALL.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\3BBA8B8C9577EF077D2D6F397BF1F52C\VORBIS-POPULATE-TEST.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\vorbis-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\0241B9A20DEC0C676E62AB33A538A4F0\VORBIS-POPULATE-COMPLETE.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/CMakeFiles/Debug/vorbis-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/vorbis-populate-prefix/src/vorbis-populate-stamp/Debug/vorbis-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKEFILES\6568210811E46744B0116D3E91F40CBF\VORBIS-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\VORBIS-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/vorbis-subbuild -BD:/coding/Dead_Cell/build/_deps/vorbis-subbuild --check-stamp-file D:/coding/Dead_Cell/build/_deps/vorbis-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

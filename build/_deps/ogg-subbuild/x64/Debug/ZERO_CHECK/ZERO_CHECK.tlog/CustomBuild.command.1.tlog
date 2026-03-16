@@ -1,0 +1,10 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\2446161F09FA18B1D7165BD23C05D842\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/ogg-subbuild -BD:/coding/Dead_Cell/build/_deps/ogg-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

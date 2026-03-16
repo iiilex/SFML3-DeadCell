@@ -1,0 +1,14 @@
+# Target labels
+ ogg-populate
+# Source files and their labels
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/ogg-populate
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/2446161f09fa18b1d7165bd23c05d842/ogg-populate.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/4fcbb5f78c3a22f1f04fff7e0ea3133e/ogg-populate-complete.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-build.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-configure.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-download.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-install.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-mkdir.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-patch.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-test.rule
+D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/1f082ef0509ecb8dbc2f44a8f3847203/ogg-populate-update.rule

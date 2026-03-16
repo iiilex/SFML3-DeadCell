@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\a021f209365c02e8ec80560ff52c886d\flac-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\0207018b7e0dad3008795f4606c8fdcb\flac-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\94eb85aaa2ce3ac559c1fead5f8eb7a3\flac-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\coding\Dead_Cell\build\_deps\flac-subbuild\CMakeFiles\flac-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{346DBFE6-821C-3792-A06B-F6B355A88A55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

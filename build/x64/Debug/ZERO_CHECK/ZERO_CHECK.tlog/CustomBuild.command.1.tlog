@@ -1,0 +1,10 @@
+^D:\CODING\DEAD_CELL\BUILD\CMAKEFILES\0E618C7B18CC0AFEF8F7C07857BC23E7\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell -BD:/coding/Dead_Cell/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/coding/Dead_Cell/build/Dead_Cell.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

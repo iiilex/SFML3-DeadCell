@@ -1,0 +1,24 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-4.3/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+D:/Program Files/CMake/share/cmake-4.3/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CMakePackageConfigHelpers.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckCCompilerFlag.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckCSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckCXXCompilerFlag.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckCXXSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckFunctionExists.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFile.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFileCXX.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckLibraryExists.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckSymbolExists.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckTypeSize.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/GNUInstallDirs.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CheckCompilerFlag.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CheckFlagCommonConfig.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CheckSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/TestBigEndian.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/WriteBasicConfigVersionFile.cmake
+D:/coding/Dead_Cell/build/_deps/flac-src/CMakeLists.txt
+D:/coding/Dead_Cell/build/_deps/flac-src/cmake/UseSystemExtensions.cmake
+D:/coding/Dead_Cell/build/_deps/flac-src/config.cmake.h.in
+D:/coding/Dead_Cell/build/_deps/flac-src/flac-config.cmake.in

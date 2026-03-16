@@ -1,0 +1,10 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\8BD589A6850DFA1CBB72C075B5FE5E41\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/sfml-subbuild -BD:/coding/Dead_Cell/build/_deps/sfml-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/coding/Dead_Cell/build/_deps/sfml-subbuild/sfml-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

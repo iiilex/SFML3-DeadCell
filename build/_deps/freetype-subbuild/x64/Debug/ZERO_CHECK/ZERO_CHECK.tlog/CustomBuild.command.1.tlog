@@ -1,0 +1,10 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\F76E467857E6762CB27E24539E78DB08\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/freetype-subbuild -BD:/coding/Dead_Cell/build/_deps/freetype-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

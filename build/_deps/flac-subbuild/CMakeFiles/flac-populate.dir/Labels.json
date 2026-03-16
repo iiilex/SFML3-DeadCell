@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/flac-populate"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/94eb85aaa2ce3ac559c1fead5f8eb7a3/flac-populate.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/0207018b7e0dad3008795f4606c8fdcb/flac-populate-complete.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-build.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-configure.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-download.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-install.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-patch.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-test.rule"
+		},
+		{
+			"file" : "D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/a021f209365c02e8ec80560ff52c886d/flac-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"flac-populate"
+		],
+		"name" : "flac-populate"
+	}
+}

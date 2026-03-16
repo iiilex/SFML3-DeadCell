@@ -1,0 +1,154 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-MKDIR.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/tmp/ogg-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-DOWNLOAD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/tmp/ogg-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-UPDATE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\ogg-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/tmp/ogg-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-PATCH.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\ogg-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DOGG_DIR=D:/coding/Dead_Cell/build/_deps/ogg-src -P D:/coding/Dead_Cell/build/_deps/sfml-src/tools/ogg/PatchOgg.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-CONFIGURE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\ogg-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-BUILD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\ogg-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-INSTALL.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\ogg-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\1F082EF0509ECB8DBC2F44A8F3847203\OGG-POPULATE-TEST.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\ogg-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\4FCBB5F78C3A22F1F04FFF7E0EA3133E\OGG-POPULATE-COMPLETE.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/Debug/ogg-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/Debug/ogg-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKEFILES\2446161F09FA18B1D7165BD23C05D842\OGG-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\OGG-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/ogg-subbuild -BD:/coding/Dead_Cell/build/_deps/ogg-subbuild --check-stamp-file D:/coding/Dead_Cell/build/_deps/ogg-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

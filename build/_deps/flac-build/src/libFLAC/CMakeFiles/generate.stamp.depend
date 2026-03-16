@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckCSourceCompiles.cmake
+D:/coding/Dead_Cell/build/_deps/flac-src/cmake/CheckA64NEON.cmake
+D:/coding/Dead_Cell/build/_deps/flac-src/cmake/CheckCPUArch.c.in
+D:/coding/Dead_Cell/build/_deps/flac-src/cmake/CheckCPUArch.cmake
+D:/coding/Dead_Cell/build/_deps/flac-src/src/libFLAC/CMakeLists.txt

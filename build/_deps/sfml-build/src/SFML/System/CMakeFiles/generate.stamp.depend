@@ -1,0 +1,12 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-4.3/Modules/CMakePackageConfigHelpers.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckCSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFile.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckLibraryExists.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/FindPackageMessage.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/FindThreads.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CheckSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/WriteBasicConfigVersionFile.cmake
+D:/coding/Dead_Cell/build/_deps/sfml-src/src/SFML/System/CMakeLists.txt
+D:/coding/Dead_Cell/build/_deps/sfml-src/src/SFML/System/Dependencies.cmake.in

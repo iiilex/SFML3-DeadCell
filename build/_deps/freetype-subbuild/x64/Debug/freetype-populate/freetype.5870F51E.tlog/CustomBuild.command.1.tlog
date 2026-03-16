@@ -1,0 +1,154 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-MKDIR.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/tmp/freetype-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-DOWNLOAD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/tmp/freetype-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-UPDATE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\freetype-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/tmp/freetype-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-PATCH.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\freetype-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DFREETYPE_DIR=D:/coding/Dead_Cell/build/_deps/freetype-src -P D:/coding/Dead_Cell/build/_deps/sfml-src/tools/freetype/PatchFreetype.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-CONFIGURE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\freetype-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-BUILD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\freetype-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-INSTALL.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\freetype-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\DC2D221CFCCA0629E3C42066C1B15E58\FREETYPE-POPULATE-TEST.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\freetype-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\B9BC5AF28BFCCA56FC29506E80820EFF\FREETYPE-POPULATE-COMPLETE.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/Debug/freetype-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/Debug/freetype-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKEFILES\F76E467857E6762CB27E24539E78DB08\FREETYPE-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FREETYPE-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/freetype-subbuild -BD:/coding/Dead_Cell/build/_deps/freetype-subbuild --check-stamp-file D:/coding/Dead_Cell/build/_deps/freetype-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

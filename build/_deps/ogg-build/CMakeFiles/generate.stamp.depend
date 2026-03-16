@@ -1,0 +1,19 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-4.3/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+D:/Program Files/CMake/share/cmake-4.3/Modules/CMakePackageConfigHelpers.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CPack.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CPackComponent.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CTest.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CTestUseLaunchers.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFile.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFileCXX.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckIncludeFiles.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/CheckTypeSize.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/GNUInstallDirs.cmake
+D:/Program Files/CMake/share/cmake-4.3/Modules/WriteBasicConfigVersionFile.cmake
+D:/Program Files/CMake/share/cmake-4.3/Templates/CPackConfig.cmake.in
+D:/coding/Dead_Cell/build/_deps/ogg-src/CMakeLists.txt
+D:/coding/Dead_Cell/build/_deps/ogg-src/cmake/CheckSizes.cmake
+D:/coding/Dead_Cell/build/_deps/ogg-src/cmake/OggConfig.cmake.in
+D:/coding/Dead_Cell/build/_deps/ogg-src/include/ogg/config_types.h.in
+D:/coding/Dead_Cell/build/_deps/ogg-src/ogg.pc.in

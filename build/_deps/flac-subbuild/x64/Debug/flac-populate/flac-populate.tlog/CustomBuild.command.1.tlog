@@ -1,0 +1,154 @@
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-MKDIR.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/tmp/flac-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-DOWNLOAD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/tmp/flac-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-UPDATE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\flac-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/tmp/flac-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-PATCH.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\flac-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -DFLAC_DIR=D:/coding/Dead_Cell/build/_deps/flac-src -P D:/coding/Dead_Cell/build/_deps/sfml-src/tools/flac/PatchFLAC.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-CONFIGURE.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\flac-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-BUILD.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\flac-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-INSTALL.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\flac-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\A021F209365C02E8EC80560FF52C886D\FLAC-POPULATE-TEST.RULE
+setlocal
+cd D:\coding\Dead_Cell\build\_deps\flac-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\0207018B7E0DAD3008795F4606C8FDCB\FLAC-POPULATE-COMPLETE.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/Debug/flac-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/coding/Dead_Cell/build/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/Debug/flac-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKEFILES\94EB85AAA2CE3AC559C1FEAD5F8EB7A3\FLAC-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODING\DEAD_CELL\BUILD\_DEPS\FLAC-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/coding/Dead_Cell/build/_deps/flac-subbuild -BD:/coding/Dead_Cell/build/_deps/flac-subbuild --check-stamp-file D:/coding/Dead_Cell/build/_deps/flac-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
