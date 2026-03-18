@@ -16,7 +16,7 @@ struct PhysicsData
 class PhysicsSystem
 {
     protected:
-        const float gravity = 2000;
+        const float gravity = 3500;
     public:
         PhysicsSystem(); // 构造函数
         void updateVelocity(PhysicsData& data, float dt);

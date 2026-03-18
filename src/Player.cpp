@@ -13,6 +13,7 @@ Player::Player() : myShape({50, 50})
     myData.isLanded = true;
     myData.isWalled = false;
     direction = 1;
+    jumpCnt = 0;
 }
 
 void Player::update(sf::RenderWindow &window, PhysicsSystem &mySystem, float dt)
@@ -31,18 +32,20 @@ void Player::update(sf::RenderWindow &window, PhysicsSystem &mySystem, float dt)
             myData.velocity.x = 0;
             break;
         case PlayerState::Jump:
-            myData.velocity.y = basic_velocity_y;
+            if(jumpCnt<2)
+            {
+                myData.velocity.y = basic_velocity_y;
+                jumpCnt ++;
+            }
+            break;
         }
     }
+    
 
     mySystem.updatePosition(myData, dt);
+    if(myData.isLanded)  jumpCnt = 0;
     mySystem.updateVelocity(myData, dt);
-
     myShape.setPosition(myData.position);
-
-    window.clear();
-    window.draw(myShape);
-    window.display();
 }
 
 void Player::jump()
@@ -67,4 +70,11 @@ void Player::runRight()
 void Player::endRun()
 {
     stateQuery.push(PlayerState::EndRun);
+}
+
+void Player::draw(sf::RenderWindow &window)
+{
+    window.clear();
+    window.draw(myShape);
+    window.display();
 }

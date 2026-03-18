@@ -30,17 +30,18 @@ void Game::run()
                 {
                     if (keyEvent->code == sf::Keyboard::Key::Escape)
                         window.close();
-                    if (keyEvent->code == sf::Keyboard::Key::Space)
+                    if (keyEvent->code == sf::Keyboard::Key::Space || keyEvent->code == sf::Keyboard::Key::W)
                         player.jump();
                 }
             }
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
             player.runLeft();
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
             player.runRight();
-        else  player.endRun();
+        else  
+            player.endRun();
 
 
         sf::Time deltaTime = clock.restart();
@@ -48,6 +49,7 @@ void Game::run()
         if(dt>0.05)  dt=0.05;
 
         player.update(window, system, dt);
-
+        
+        player.draw(window);
     }
 }

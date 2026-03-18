@@ -6,7 +6,7 @@
 
 using std::queue;
 
-extern enum class PlayerState
+enum class PlayerState
 {
     Run, //跑步
     EndRun, //结束跑步
@@ -15,17 +15,21 @@ extern enum class PlayerState
     Crouch // 蹲下
 };
 
+
+
 class Player
 {
     protected:
         PhysicsData myData;
         queue<PlayerState> stateQuery;
         int direction; //1表示右，-1表示左
-    
+        int jumpCnt;
+
         sf::RectangleShape myShape;
     public:
         Player();
         void update(sf::RenderWindow &window, PhysicsSystem& mySystem, float dt);
+        void draw(sf::RenderWindow &window);
 
         void jump();
         void runLeft();

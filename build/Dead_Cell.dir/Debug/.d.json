@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\coding\\dead_cell\\src\\physics.cpp",
+        "Source": "d:\\coding\\dead_cell\\src\\player.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "d:\\coding\\dead_cell\\include\\physics.h",
+            "d:\\coding\\dead_cell\\include\\player.h",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\graphics.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\graphics\\blendmode.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\graphics\\export.hpp",
@@ -253,6 +253,9 @@
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\system\\inputstream.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\system\\memoryinputstream.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\system\\sleep.hpp",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\queue",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\deque",
+            "d:\\coding\\dead_cell\\include\\physics.h",
             "d:\\coding\\dead_cell\\include\\global.h"
         ],
         "ImportedModules": [],
