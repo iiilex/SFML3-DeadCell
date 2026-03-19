@@ -256,7 +256,16 @@
             "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\queue",
             "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\deque",
             "d:\\coding\\dead_cell\\include\\physics.h",
-            "d:\\coding\\dead_cell\\include\\global.h"
+            "d:\\coding\\dead_cell\\include\\global.h",
+            "d:\\coding\\dead_cell\\include\\animation.h",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\iostream",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\ostream",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\thread",
+            "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\process.h",
+            "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt_startup.h",
+            "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\math.h",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\vcruntime_startup.h",
+            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\stop_token"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

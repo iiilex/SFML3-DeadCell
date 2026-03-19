@@ -18,8 +18,20 @@ void Game::run()
 
     sf::Clock clock;
 
+
     while (window.isOpen())
     {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+            player.runLeft();
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+            player.runRight();
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+            player.crouch();
+        else 
+        {
+            player.endRun();
+            player.endCrouch();
+        }
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
@@ -32,24 +44,14 @@ void Game::run()
                         window.close();
                     if (keyEvent->code == sf::Keyboard::Key::Space || keyEvent->code == sf::Keyboard::Key::W)
                         player.jump();
+                    if (keyEvent->code == sf::Keyboard::Key::H)
+                        player.roll();
                 }
             }
         }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-            player.runLeft();
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-            player.runRight();
-        else  
-            player.endRun();
-
-
         sf::Time deltaTime = clock.restart();
         float dt = deltaTime.asSeconds();
         if(dt>0.05)  dt=0.05;
-
         player.update(window, system, dt);
-        
-        player.draw(window);
     }
 }

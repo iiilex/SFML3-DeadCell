@@ -11,6 +11,7 @@ struct PhysicsData
     sf::FloatRect box;
     bool isWalled;
     bool isLanded;
+    bool isFalling;
 };
 
 class PhysicsSystem

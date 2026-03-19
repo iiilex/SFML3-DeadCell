@@ -15,6 +15,10 @@ void PhysicsSystem::updateVelocity(PhysicsData& data, float dt)
         return ;
     }
     data.velocity.y += gravity * dt;
+    if(data.velocity.y > 0)  
+        data.isFalling = 1;
+    else  
+        data.isFalling = 0;
     if(data.velocity.y > max_velocity_y) 
         data.velocity.y = max_velocity_y;
 }
@@ -28,9 +32,9 @@ void PhysicsSystem::updatePosition(PhysicsData& data , float dt)
     //后面肯定会改的
 
     data.isLanded = false;
-    if(data.position.y > window_size_y-50)
+    if(data.position.y > window_size_y-data.box.size.y)
     {
-        data.position.y = window_size_y-50;
+        data.position.y = window_size_y - data.box.size.y;
         data.isLanded = true;
     }
     if(data.position.x < 0 )
@@ -38,9 +42,9 @@ void PhysicsSystem::updatePosition(PhysicsData& data , float dt)
         data.position.x = 0;
         data.isWalled = true;
     }
-    if(data.position.x > window_size_x - 50)
+    if(data.position.x > window_size_x - data.box.size.x)
     {
-        data.position.x = window_size_x - 50;
+        data.position.x = window_size_x - data.box.size.x;
         data.isWalled = true;
     }
 
