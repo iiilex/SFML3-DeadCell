@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Dead_Cell.dir\\Debug\\PlayerState.obj",
+            "outputs": [
+                "D:\\coding\\Dead_Cell\\build\\Dead_Cell.dir\\Debug\\vc143.pdb",
+                "Dead_Cell.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}

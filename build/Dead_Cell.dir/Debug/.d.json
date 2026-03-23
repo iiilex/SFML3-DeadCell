@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\coding\\dead_cell\\src\\player.cpp",
+        "Source": "d:\\coding\\dead_cell\\src\\animation.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "d:\\coding\\dead_cell\\include\\player.h",
+            "d:\\coding\\dead_cell\\include\\animation.h",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\graphics.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\graphics\\blendmode.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\graphics\\export.hpp",
@@ -253,19 +253,7 @@
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\system\\inputstream.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\system\\memoryinputstream.hpp",
             "d:\\coding\\dead_cell\\build\\_deps\\sfml-src\\include\\sfml\\system\\sleep.hpp",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\queue",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\deque",
-            "d:\\coding\\dead_cell\\include\\physics.h",
-            "d:\\coding\\dead_cell\\include\\global.h",
-            "d:\\coding\\dead_cell\\include\\animation.h",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\iostream",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\ostream",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\thread",
-            "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\process.h",
-            "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\corecrt_startup.h",
-            "d:\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\math.h",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\vcruntime_startup.h",
-            "d:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\stop_token"
+            "d:\\coding\\dead_cell\\include\\playerstate.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

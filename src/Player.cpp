@@ -1,326 +1,260 @@
-#include <Player.h>
-#include <iostream>
-#include <filesystem>
-#include <string>
+#include<iostream>
 
-#include <chrono>
-#include <thread>
+#include<player.h>
 
-using std::string;
-
-const float basic_velocity_x = 800;
-const float basic_velocity_y = -1000;
-const float idle_time = 0.05;
-const float player_scale = 3.5;
-
-unordered_map<PlayerAnimState, string> animDir{
-    {PlayerAnimState::idle, "idle"},
-    {PlayerAnimState::idleRun, "idleRun"},
-    {PlayerAnimState::runIdle, "idleRun"},
-    {PlayerAnimState::run, "run"},
-    {PlayerAnimState::dash, "dash"},
-    {PlayerAnimState::endDashRun, "endDashRun"},
-    {PlayerAnimState::jumpThrough, "jumpThrough"},
-    {PlayerAnimState::jumpTransition, "jumpTransition"},
-    {PlayerAnimState::jumpFalling, "jumpFalling"},
-    {PlayerAnimState::crouch, "crouch"},
-    {PlayerAnimState::crouchIdle, "crouchIdle"},
-    {PlayerAnimState::idleCrouch, "crouchIdle"},
-    {PlayerAnimState::atkCodgA, "atkCodgA"},
-    {PlayerAnimState::atkCodgB, "atkCodgB"},
-    {PlayerAnimState::atkCodgC, "atkCodgC"},
-    {PlayerAnimState::rollStart, "rollStart"},
-    {PlayerAnimState::rolling, "rolling"},
-    {PlayerAnimState::rollEnd, "rollEnd"},
-    {PlayerAnimState::rollIdle, "rollIdle"},
-    {PlayerAnimState::rollRun, "rollRun"}};
-
-unordered_map<PlayerAnimState, bool> animReverse{
-    {PlayerAnimState::runIdle, true},
-    {PlayerAnimState::idleCrouch, true}};
-
-// 辅助函数：统计文件夹图片数量
-int countFiles(const std::string &dir)
+InputSection::InputSection()
 {
-    try
-    {
-        int res = 0;
-        // 如果这里抛出异常，说明 dir 路径有问题
-        for (const auto &entry : std::filesystem::directory_iterator(dir))
-        {
-            res++;
-        }
-        return res;
-    }
-    catch (const std::filesystem::filesystem_error &e)
-    {
-        // === 关键调试信息 ===
-        std::cerr << "【致命错误】文件系统操作失败!" << std::endl;
-        std::cerr << "错误代码: " << e.code().message() << std::endl;
-        std::cerr << "出错路径: " << e.path1().string() << std::endl;
-        std::cerr << "完整信息: " << e.what() << std::endl;
-
-        // 在这里打断点 (Debug -> Breakpoints -> Toggle Breakpoint)
-        // 运行到这里时，你可以看到具体的路径是什么，为什么失败
-        return 0; // 返回 0 防止程序崩溃，或者重新抛出
-    }
-}
-// 辅助函数:把int 1转化为 string 001
-string toString(int x)
-{
-    string res = "000";
-    res[0] = x / 100 + '0';
-    res[1] = x / 10 % 10 + '0';
-    res[2] = x % 10 + '0';
-    return res;
-}
-// 辅助函数：把 enum class 转化成 int
-template <typename T>
-int toInt(T x)
-{
-    return static_cast<int>(x);
-}
-// 辅助函数结束
-
-Player::Player()
-{
-    myData.box = {{0,0},{80,80}};                 // 记得改
-    myData.position = {0, 400}; // 记得改
-    myData.velocity = {0, 0};
-    myData.isLanded = false;
-    myData.isWalled = false;
-    myData.isFalling = true;
-
-    lastState = nowState = PlayerState::Idle;
-
-    direction = 1;
-    jumpCnt = 0;
-
-    animInit();
-
-    int _Roll = toInt<PlayerState>(PlayerState::Roll);
-    int _Run = toInt<PlayerState>(PlayerState::Run);
-    int _EndRun = toInt<PlayerState>(PlayerState::EndRun);
-    int _Jump = toInt<PlayerState>(PlayerState::Jump);
-    int _Crouch = toInt<PlayerState>(PlayerState::Crouch);
-    int _EndCrouch = toInt<PlayerState>(PlayerState::EndCrouch);
-    int _Idle = toInt<PlayerState>(PlayerState::Idle);
-
-    for (int i = 0; i <= 10; i++)
-        for (int j = 0; j <= 10; j++)
-            notAllowed[i][j] = 0;
-
-    notAllowed[_Roll][_Run] = notAllowed[_Roll][_EndRun] = 1;
-    notAllowed[_Roll][_Crouch] = notAllowed[_Roll][_EndCrouch] = 1;
-
-    notAllowed[_Crouch][_Run] = notAllowed[_Crouch][_EndRun] = 1;
-    notAllowed[_Jump][_Run] = notAllowed[_Jump][_EndRun] = 1;
-    notAllowed[_Jump][_Crouch] = notAllowed[_Jump][_EndCrouch] = 1;
-
-    notAllowed[_Run][_Run] = 1;
-    notAllowed[_EndRun][_EndRun] = 1;
-    notAllowed[_Crouch][_Crouch] = 1;
-    notAllowed[_Idle][_Idle] = 1;
-    notAllowed[_Idle][_EndRun] = notAllowed[_Idle][_EndCrouch] = 1;
-    notAllowed[_EndRun][_EndCrouch] = notAllowed[_EndCrouch][_EndRun] = 1;
+    isLeftPressed = false;
+    isRightPressed = false;
 }
 
-void Player::animInit()
+Player::Player():
+section(),
+state(),
+playerData(),
+playerAnimSystem(),
+currentAction(PlayerAnimAction::Idle)
 {
-    myAnimData.nowAnimState = PlayerAnimState::idle;
-
-    myAnimData.isLoop[PlayerAnimState::idle] = 1;
-    myAnimData.isLoop[PlayerAnimState::run] = 1;
-    myAnimData.isLoop[PlayerAnimState::crouch] = 1;
-    myAnimData.isLoop[PlayerAnimState::jumpFalling] = 1;
-
-    myAnimData.id = 0;
-    myAnimData.gotNew = 0;
-    myAnimData.animQuery.push(PlayerAnimState::idle);
-    string rootDir = "./atlas/player";
-    for (int i = 1, len = static_cast<int>(PlayerAnimState::_count); i < len; i++)
-    {
-        PlayerAnimState t = static_cast<PlayerAnimState>(i);
-        string Dir = rootDir + '/' + animDir[t];
-        int picCnt = countFiles(Dir);
-        myAnimData.animResourceCnt[t] = picCnt;
-        myAnimData.animResource[t].resize(picCnt);
-        for (int j = 0; j < picCnt; j++)
-        {
-            string fullDir = Dir + '/' + toString(j) + ".png";
-            if (!animReverse[t])
-                myAnimData.animResource[t][j].loadFromFile(fullDir);
-            else
-                myAnimData.animResource[t][picCnt - 1 - j].loadFromFile(fullDir);
-        }
-    }
+    initAnimSystem();
 }
 
-void Player::update(sf::RenderWindow &window, PhysicsSystem &mySystem, float dt)
+void Player::leftPressed(bool flag)
 {
-    auto tState = PlayerState::Idle;
-    if (!stateQuery.empty())
+    section.isLeftPressed = flag;
+    if(flag)
     {
-        tState = stateQuery.front();
-        stateQuery.pop();
+        state.isMoving = true;
+        playerData.velocity.x = -default_velocity_x;
+        state.isFacingRight = false;
     }
-
-    int _nowState = toInt<PlayerState>(nowState);
-    int _tState = toInt<PlayerState>(tState);
-
-    //std::this_thread::sleep_for(std::chrono::milliseconds(80));
-    //std::cout<<_nowState<<" "<<_tState<<"\n";
-
-    bool can_add = false;
-
-    if (!notAllowed[_nowState][_tState])
-    {
-        std::queue<PlayerAnimState>().swap(myAnimData.animQuery);
-        myAnimData.id = 0;
-        myAnimData.gotNew = true;
-        can_add = true;
-        lastState = nowState;
-        nowState = tState;
-    }
-
-    switch (nowState)
-    {
-    case PlayerState::Run:
-        if (lastState == PlayerState::Crouch)
-            break;
-
-        myData.velocity.x = basic_velocity_x * direction;
-
-        if (can_add)
-        {
-            if (lastState == PlayerState::Roll)
-                myAnimData.animQuery.push(PlayerAnimState::rollRun);
-            if (lastState == PlayerState::Idle)
-                myAnimData.animQuery.push(PlayerAnimState::idleRun);
-            myAnimData.animQuery.push(PlayerAnimState::run);
-        }
-        break;
-    case PlayerState::EndRun:
-        if (can_add)
-        {
-            myAnimData.animQuery.push(PlayerAnimState::runIdle);
-            myAnimData.animQuery.push(PlayerAnimState::idle);
-        }
-        myData.velocity.x = 0;
-        break;
-    case PlayerState::Jump:
-        if (can_add)
-            myAnimData.animQuery.push(PlayerAnimState::jumpThrough);
-        if (jumpCnt < 2)
-        {
-            myData.velocity.y = basic_velocity_y;
-            jumpCnt++;
-        }
-        break;
-    case PlayerState::Crouch:
-        if (can_add)
-        {
-            myAnimData.animQuery.push(PlayerAnimState::idleCrouch);
-            myAnimData.animQuery.push(PlayerAnimState::crouch);
-        }
-        break;
-    case PlayerState::EndCrouch:
-        if (can_add)
-        {
-            myAnimData.animQuery.push(PlayerAnimState::crouchIdle);
-            myAnimData.animQuery.push(PlayerAnimState::idle);
-        }
-        break;
-    case PlayerState::Roll:
-        if (can_add)
-        {
-            myAnimData.animQuery.push(PlayerAnimState::rollStart);
-            myAnimData.animQuery.push(PlayerAnimState::rolling);
-            myAnimData.animQuery.push(PlayerAnimState::rollEnd);
-        }
-        break;
-    case PlayerState::Idle:
-        if (can_add)
-        {
-            myAnimData.animQuery.push(PlayerAnimState::idle);
-        }
-        break;
-    }
-
-    
-
-    mySystem.updatePosition(myData, dt);
-    if (myData.isLanded)
-        jumpCnt = 0;
-    mySystem.updateVelocity(myData, dt);
-
-    if(myData.isFalling)  
-    {
-        myAnimData.animQuery.push(PlayerAnimState::jumpTransition);
-        myAnimData.animQuery.push(PlayerAnimState::jumpFalling);
-    }
-
-    auto nowSprite = myAnimSystem.update(myAnimData, myData.position);
-
-    if (direction == -1)
-        nowSprite.setScale({-player_scale, player_scale});
     else
-        nowSprite.setScale({player_scale, player_scale});
-    nowSprite.setPosition(myData.position);
-    myData.box = nowSprite.getGlobalBounds();
+    {
+        state.isMoving = false;
+        playerData.velocity.x = 0;
+    }
+}
 
-    draw(window, nowSprite);
+void Player::rightPressed(bool flag)
+{
+    section.isRightPressed = flag;
+    if(flag)
+    {
+        state.isMoving = true;
+        playerData.velocity.x = default_velocity_x;
+        state.isFacingRight = true;
+    }
+    else
+    {
+        state.isMoving = false;
+        playerData.velocity.x = 0;
+    }
+}
+
+void Player::crouchPressed(bool flag)
+{
+    section.isCrouchPressed = flag;
+    if(flag)
+    {
+        state.isMoving = false;
+        state.isCrouch = true;
+        playerData.velocity.x = 0;
+    }
+    else
+    {
+        state.isCrouch = false;
+    }
 }
 
 void Player::jump()
 {
-    stateQuery.push(PlayerState::Jump);
-}
-
-void Player::runLeft()
-{
-    direction = -1;
-    if (!stateQuery.empty() && nowState == PlayerState::Run)
-        return;
-    stateQuery.push(PlayerState::Run);
-}
-
-void Player::runRight()
-{
-    direction = 1;
-    if (!stateQuery.empty() && nowState == PlayerState::Run)
-        return;
-    stateQuery.push(PlayerState::Run);
-}
-
-void Player::endRun()
-{
-    if (!stateQuery.empty() && (nowState == PlayerState::EndCrouch || nowState == PlayerState::EndRun || nowState == PlayerState::Idle))
-        return;
-    stateQuery.push(PlayerState::EndRun);
-}
-
-void Player::crouch()
-{
-    if (!stateQuery.empty() && nowState == PlayerState::Crouch)
-        stateQuery.push(PlayerState::Crouch);
-}
-
-void Player::endCrouch()
-{
-    if (!stateQuery.empty() && (nowState == PlayerState::EndCrouch || nowState == PlayerState::EndRun || nowState == PlayerState::Idle))
-        return;
-    stateQuery.push(PlayerState::EndCrouch);
+    insertAction(InputAction::Jump);
 }
 
 void Player::roll()
 {
-    stateQuery.push(PlayerState::Roll);
+    insertAction(InputAction::Roll);
 }
 
-void Player::draw(sf::RenderWindow &window, sf::Sprite &sprite)
+void Player::attack()
 {
-    window.clear();
-    window.draw(sprite);
-    window.display();
+    insertAction(InputAction::Attack);
 }
+
+void Player::counter()
+{
+    insertAction(InputAction::Counter);
+}
+
+void Player::insertAction(const InputAction newAction,const float duration)
+{
+    section.inputBuffer.push_back({newAction, duration});
+}
+
+void Player::updateInputSection(float dt)
+{
+    while(!section.inputBuffer.empty())
+    {
+        auto& item = section.inputBuffer.front();
+        if(item.second <= dt)
+        {
+            section.inputBuffer.pop_front();
+        }
+        else
+        {
+            item.second -= dt;
+        }
+    }
+}
+
+// 辅助函数：得到动作的优先级
+int getPriority(InputAction thisAction)
+{
+    if(thisAction == InputAction::Counter)  return 5;
+    if(thisAction == InputAction::Roll)  return 4;
+    if(thisAction == InputAction::Attack)  return 3;
+}
+
+InputAction Player::getCurrentInputAction()
+{
+    InputAction res = InputAction::None;
+    int maxLevel = -1;
+    for(const auto &item : section.inputBuffer)
+    {
+        if(item.second >= maxLevel)
+        {
+            maxLevel = item.second;
+            res = item.first;
+        }
+    }
+    return res;
+}
+
+void Player::updatePlayerState()
+{
+    auto nowAction = getCurrentInputAction();
+    if(nowAction == InputAction::None)
+    {
+        return ;
+    }
+    switch(nowAction)
+    {
+        case InputAction::Counter:
+            state.isMoving = false;
+            state.isRolling = false;
+            state.isCrouch = false;
+            state.isCounter = true;
+            playerData.velocity.x = 0;
+            break;
+        case InputAction::Attack:
+            state.isMoving = false;
+            state.isRolling = false;
+            state.isCrouch = false;
+            state.isAttack = true;
+            playerData.velocity.x = 0;
+            break;
+        case InputAction::Roll:
+            state.isCrouch = false;
+            state.isRolling = true;
+            state.isMoving = true;
+            playerData.velocity.x = default_rolling_velocity_x;
+            break;
+        case InputAction::Jump:
+            state.isRising = true;
+            state.isGrounded = false;
+            playerData.velocity.y = default_velocity_y;
+            break;
+    }
+}
+
+void Player::reupdatePlayerState(const PhysicsData& data)
+{
+    if(state.isMoving && data.velocity.x == 0)
+    {
+        state.isMoving = false;
+    }
+    if(data.velocity.y == 0)
+    {
+        if(state.isRising)  
+        {
+            state.isRising = false;
+        }
+        else if(!state.isGrounded)
+        {
+            state.isGrounded = true;
+        }
+    }
+    else if(data.velocity.y < 0)
+    {
+        state.isRising = false;
+    }
+}
+
+PlayerAnimAction Player::getNextAnimAction()
+{
+    if(state.isCounter)  return PlayerAnimAction::Counter;
+    if(state.isAttack)  return PlayerAnimAction::Attack;
+    if(state.isRolling)  return PlayerAnimAction::Roll;
+    if(state.isRising)  return PlayerAnimAction::Jump;
+    if(!state.isRising && !state.isGrounded)  return PlayerAnimAction::Fall;
+    if(state.isCrouch)  return PlayerAnimAction::Crouch;
+    if(state.isMoving)  return PlayerAnimAction::Run;
+    return PlayerAnimAction::Idle;
+}
+
+void Player::updatePlayer(float dt, PhysicsSystem& system, sf::RenderWindow& window)
+{
+    updateInputSection(dt); // 更新输入序列
+    updatePlayerState(); // 依照输入序列更新角色状态和物理状态
+
+    playerData.box = playerAnimSystem.getCurrentSprite().getLocalBounds();
+
+    system.updateVelocity(playerData, dt); // 更新速度
+    system.updatePosition(playerData, dt); // 更新位置
+
+    reupdatePlayerState(playerData); // 由当前速度和位置再次更新角色状态
+
+    auto nextAction = getNextAnimAction();
+
+    if(nextAction != currentAction && getPriority(nextAction) >= getPriority(currentAction))
+    {
+        std::string transitionName = getTransition(currentAction, nextAction);
+        if(transitionName == "none")
+            transitionName = getPlayerAnimActionName(nextAction);
+        playerAnimSystem.changePlayer(transitionName);
+    }
+
+    if(playerAnimSystem.isFinished())
+    {
+        playerAnimSystem.turnToNextAction();
+    }
+
+    // 简陋测试作画部分
+    sf::Sprite nowPlayerSprite = playerAnimSystem.updatePlayer(dt);
+    nowPlayerSprite.setPosition(playerData.position);
+    if(!state.isFacingRight)  nowPlayerSprite.setScale({-1.f,1.f});
+    window.clear();
+    window.draw(nowPlayerSprite);
+    window.display();
+
+}
+
+// --- 动画资源相关 ---
+
+void Player::initAnimSystem()
+{
+    std::ifstream inFile("./data/PlayerAnim.txt");
+    std::string animName;
+    std::string rootPath = "./atlas/player";
+    int isLoop, isReversed, isTransition;
+    while(inFile >> animName)
+    {
+        std::string sourceName = "none";
+        std::string nextAnim = "none";
+        inFile >> isLoop >> isReversed;
+        if(isReversed)  inFile >> sourceName;
+        inFile >> isTransition;
+        if(isTransition)  inFile >> nextAnim;
+        playerAnimSystem.registerPlayer(rootPath, animName, sourceName, isLoop, isReversed, isTransition, nextAnim);
+    }
+}
+

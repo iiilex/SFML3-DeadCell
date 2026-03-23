@@ -1,13 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
+#include <optional>
 
 #include <Game.h>
 
 Game::Game() : 
-window(sf::VideoMode({1920, 1080}), "Dead Cell", sf::Style::Titlebar | sf::Style::Close),
-player(),
-system()
+window(sf::VideoMode({1920, 1080}), "Dead Cell", sf::Style::Titlebar | sf::Style::Close)
 {
     window.setFramerateLimit(120);
 }
@@ -18,40 +17,62 @@ void Game::run()
 
     sf::Clock clock;
 
+    std::optional<Player> player;
+    player.emplace();
 
+    PhysicsSystem mySystem;
+
+    clock.reset();
     while (window.isOpen())
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-            player.runLeft();
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-            player.runRight();
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-            player.crouch();
-        else 
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::D))
         {
-            player.endRun();
-            player.endCrouch();
+            player->rightPressed(true);
         }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::A))
+        {
+            player->leftPressed(true);
+        }
+        
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::S))
+        {
+            std::cout<<"get!\n";
+            player->crouchPressed(true);
+        }
+        else
+        {
+            player->crouchPressed(false);
+        }
+
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
-            if (event->is<sf::Event::KeyPressed>()) 
+            else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) 
             {
-                if (auto keyEvent = event->getIf<sf::Event::KeyPressed>())
-                {
-                    if (keyEvent->code == sf::Keyboard::Key::Escape)
-                        window.close();
-                    if (keyEvent->code == sf::Keyboard::Key::Space || keyEvent->code == sf::Keyboard::Key::W)
-                        player.jump();
-                    if (keyEvent->code == sf::Keyboard::Key::H)
-                        player.roll();
-                }
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
+                    window.close();
+
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Up || keyPressed->scancode == sf::Keyboard::Scancode::Space)
+                    player->jump();
+
+                if (keyPressed->scancode == sf::Keyboard::Scancode::J)
+                    player->roll();
+
+                if (keyPressed->scancode == sf::Keyboard::Scancode::K)
+                    player->attack();
+
+                if(keyPressed->scancode == sf::Keyboard::Scancode::L)
+                    player->counter();
             }
         }
-        sf::Time deltaTime = clock.restart();
-        float dt = deltaTime.asSeconds();
-        if(dt>0.05)  dt=0.05;
-        player.update(window, system, dt);
+
+        float dt = clock.restart().asSeconds();
+        player->updatePlayer(dt, mySystem, window);
+        
+
     }
+    
 }

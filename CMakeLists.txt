@@ -14,6 +14,7 @@ set(PROJECT_SOURCES
         src/Animation.cpp
         src/Player.cpp
         src/Physics.cpp
+        src/PlayerState.cpp
 )
 add_executable(Dead_Cell ${PROJECT_SOURCES})
 target_include_directories(Dead_Cell PRIVATE ${CMAKE_SOURCE_DIR}/include)

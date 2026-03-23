@@ -16,6 +16,9 @@
     <ClCompile Include="D:\coding\Dead_Cell\src\Physics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\coding\Dead_Cell\src\PlayerState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\coding\Dead_Cell\CMakeLists.txt" />

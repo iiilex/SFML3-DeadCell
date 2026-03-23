@@ -2,6 +2,13 @@
 
 const float max_velocity_y = 1000;
 
+PhysicsData::PhysicsData()
+{
+    position = {0.f, 0.f};
+    velocity = {0.f, 0.f};
+    box = {{0.f, 0.f}, {0.f, 0.f}};
+}
+
 PhysicsSystem::PhysicsSystem()
 {
 
@@ -9,16 +16,7 @@ PhysicsSystem::PhysicsSystem()
 
 void PhysicsSystem::updateVelocity(PhysicsData& data, float dt)
 {
-    if(data.isLanded)
-    {
-        data.velocity.y = 0;
-        return ;
-    }
     data.velocity.y += gravity * dt;
-    if(data.velocity.y > 0)  
-        data.isFalling = 1;
-    else  
-        data.isFalling = 0;
     if(data.velocity.y > max_velocity_y) 
         data.velocity.y = max_velocity_y;
 }
@@ -28,24 +26,20 @@ void PhysicsSystem::updatePosition(PhysicsData& data , float dt)
     data.position.x += data.velocity.x * dt;
     data.position.y += data.velocity.y * dt;
 
-    //在这里写入坐标修正的方法，只是为了测试
-    //后面肯定会改的
-
-    data.isLanded = false;
     if(data.position.y > window_size_y-data.box.size.y)
     {
         data.position.y = window_size_y - data.box.size.y;
-        data.isLanded = true;
+        data.velocity.y = 0;
     }
     if(data.position.x < 0 )
     {
         data.position.x = 0;
-        data.isWalled = true;
+        data.velocity.x = 0;
     }
     if(data.position.x > window_size_x - data.box.size.x)
     {
         data.position.x = window_size_x - data.box.size.x;
-        data.isWalled = true;
+        data.velocity.x = 0;
     }
 
 }

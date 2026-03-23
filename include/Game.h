@@ -11,8 +11,6 @@ class Game
 {
     protected:
         sf::RenderWindow window;
-        Player player;
-        PhysicsSystem system;
     public:
         Game();
         void run();

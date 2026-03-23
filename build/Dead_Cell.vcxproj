@@ -369,6 +369,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\coding\Dead_Cell\src\Animation.cpp" />
     <ClCompile Include="D:\coding\Dead_Cell\src\Player.cpp" />
     <ClCompile Include="D:\coding\Dead_Cell\src\Physics.cpp" />
+    <ClCompile Include="D:\coding\Dead_Cell\src\PlayerState.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
