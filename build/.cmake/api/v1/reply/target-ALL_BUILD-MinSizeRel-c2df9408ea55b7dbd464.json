@@ -5,7 +5,7 @@
 		"commands" : [],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"build/_deps/sfml-src/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -22,25 +22,19 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "sfml-window::@5730451e331e3690ae65"
-		},
-		{
-			"id" : "sfml-system::@8cb1db2982443611e568"
-		},
-		{
 			"id" : "sfml-main::@81ec5539f1398dd625f6"
-		},
-		{
-			"id" : "Dead_Cell::@6890427a1f51a3e7e1df"
 		},
 		{
 			"id" : "sfml-graphics::@98af38147d5fa7e70f61"
 		},
 		{
+			"id" : "sfml-window::@5730451e331e3690ae65"
+		},
+		{
 			"id" : "sfml-network::@d7f79968b2699e7782cb"
 		},
 		{
-			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
+			"id" : "sfml-system::@8cb1db2982443611e568"
 		},
 		{
 			"id" : "ogg::@4e5ed7d02827854e35f8"
@@ -49,16 +43,19 @@
 			"id" : "sfml-audio::@a153e5727587c53fce98"
 		},
 		{
+			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
+		},
+		{
 			"id" : "FLAC::@d572677c3819035d9b3d"
+		},
+		{
+			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "vorbisenc::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "vorbis::@692b0ee2b61df6760d20"
-		},
-		{
-			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
@@ -68,31 +65,25 @@
 	{
 		"name" : "CMake"
 	},
-	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+	"id" : "ALL_BUILD::@120c268ab73394db0a9a",
 	"isGeneratorProvided" : true,
 	"name" : "ALL_BUILD",
 	"orderDependencies" : 
 	[
 		{
-			"id" : "sfml-window::@5730451e331e3690ae65"
-		},
-		{
-			"id" : "sfml-system::@8cb1db2982443611e568"
-		},
-		{
 			"id" : "sfml-main::@81ec5539f1398dd625f6"
-		},
-		{
-			"id" : "Dead_Cell::@6890427a1f51a3e7e1df"
 		},
 		{
 			"id" : "sfml-graphics::@98af38147d5fa7e70f61"
 		},
 		{
+			"id" : "sfml-window::@5730451e331e3690ae65"
+		},
+		{
 			"id" : "sfml-network::@d7f79968b2699e7782cb"
 		},
 		{
-			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
+			"id" : "sfml-system::@8cb1db2982443611e568"
 		},
 		{
 			"id" : "ogg::@4e5ed7d02827854e35f8"
@@ -101,22 +92,25 @@
 			"id" : "sfml-audio::@a153e5727587c53fce98"
 		},
 		{
+			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
+		},
+		{
 			"id" : "FLAC::@d572677c3819035d9b3d"
+		},
+		{
+			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "vorbisenc::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "vorbis::@692b0ee2b61df6760d20"
-		},
-		{
-			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		}
 	],
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "_deps/sfml-build",
+		"source" : "build/_deps/sfml-src"
 	},
 	"sources" : [],
 	"type" : "UTILITY"

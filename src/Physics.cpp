@@ -26,19 +26,19 @@ void PhysicsSystem::updatePosition(PhysicsData& data , float dt)
     data.position.x += data.velocity.x * dt;
     data.position.y += data.velocity.y * dt;
 
-    if(data.position.y > window_size_y-data.box.size.y)
+    if(data.position.y > window_size_y-data.box.size.y /2.f)
     {
-        data.position.y = window_size_y - data.box.size.y;
+        data.position.y = window_size_y - data.box.size.y /2.f;
         data.velocity.y = 0;
     }
-    if(data.position.x < 0 )
+    if(data.position.x < data.box.size.x/2.f )
     {
-        data.position.x = 0;
+        data.position.x = data.box.size.x/2.f;
         data.velocity.x = 0;
     }
-    if(data.position.x > window_size_x - data.box.size.x)
+    if(data.position.x > window_size_x - data.box.size.x /2.f)
     {
-        data.position.x = window_size_x - data.box.size.x;
+        data.position.x = window_size_x - data.box.size.x /2.f;
         data.velocity.x = 0;
     }
 

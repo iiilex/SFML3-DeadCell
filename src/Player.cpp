@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include <player.h>
 
@@ -20,7 +22,7 @@ Player::Player() : section(),
 void Player::leftPressed(bool flag)
 {
     section.isLeftPressed = flag;
-    if (flag)
+    if (flag && (!state.isWall || state.isWall && state.isFacingRight))
     {
         state.isMoving = true;
         playerData.velocity.x = -default_velocity_x;
@@ -36,7 +38,7 @@ void Player::leftPressed(bool flag)
 void Player::rightPressed(bool flag)
 {
     section.isRightPressed = flag;
-    if (flag)
+    if (flag && (!state.isWall || state.isWall && !state.isFacingRight))
     {
         state.isMoving = true;
         playerData.velocity.x = default_velocity_x;
@@ -170,10 +172,20 @@ void Player::updatePlayerState()
 
 void Player::reupdatePlayerState(const PhysicsData &data)
 {
-    if (state.isMoving && data.velocity.x == 0)
+    if (state.isMoving)
     {
-        state.isMoving = false;
+        if(data.velocity.x == 0)
+        {
+            state.isMoving = false;
+            state.isWall = true;
+        }
+        else
+        {
+            state.isMoving = true;
+            state.isWall = false;
+        }
     }
+    
     if (data.velocity.y == 0)
     {
         if (state.isRising)
@@ -205,17 +217,24 @@ PlayerAnimAction Player::getNextAnimAction()
         return PlayerAnimAction::Fall;
     if (state.isCrouch)
         return PlayerAnimAction::Crouch;
-    if (state.isMoving)
+    if (state.isMoving && !state.isWall)
         return PlayerAnimAction::Run;
     return PlayerAnimAction::Idle;
 }
 
 void Player::updatePlayer(float dt, PhysicsSystem &system, sf::RenderWindow &window)
 {
+    //调试用
+
+    //std::this_thread::sleep_for(std::chrono::milliseconds(80));
+    std::cout<<playerData.velocity.x<<"\n";
+    // -------------
+
     updateInputSection(dt); // 更新输入序列
     updatePlayerState();    // 依照输入序列更新角色状态和物理状态
 
-    playerData.box = playerAnimSystem.getCurrentSprite().getLocalBounds();
+    auto nowSprite = playerAnimSystem.getCurrentSprite(state.isFacingRight);
+    playerData.box = nowSprite.getGlobalBounds();
 
     system.updateVelocity(playerData, dt); // 更新速度
     system.updatePosition(playerData, dt); // 更新位置
@@ -273,10 +292,8 @@ void Player::updatePlayer(float dt, PhysicsSystem &system, sf::RenderWindow &win
 
     // 简陋测试作画部分
     playerAnimSystem.updatePlayer(dt);
-    sf::Sprite nowPlayerSprite = playerAnimSystem.getCurrentSprite();
+    sf::Sprite nowPlayerSprite = playerAnimSystem.getCurrentSprite(state.isFacingRight);
     nowPlayerSprite.setPosition(playerData.position);
-    if (!state.isFacingRight)
-        nowPlayerSprite.setScale({-1.f, 1.f});
     window.clear();
     window.draw(nowPlayerSprite);
     window.display();

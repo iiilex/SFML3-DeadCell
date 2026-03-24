@@ -18,6 +18,7 @@ class PlayerState
 public:
     bool isMoving;      // 正在移动
     bool isGrounded;    // 正在地面
+    bool isWall;        // 正在墙边
     bool isRising;      // 正在上升
     bool isCrouch;      // 正在蹲下
     bool isRolling;     // 正在翻滚

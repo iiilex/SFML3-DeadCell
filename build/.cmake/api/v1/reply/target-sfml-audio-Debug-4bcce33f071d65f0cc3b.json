@@ -12,7 +12,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "_deps/sfml-build/lib/Release/sfml-audio-s.lib"
+			"path" : "_deps/sfml-build/lib/Debug/sfml-audio-s-d.lib"
 		}
 	],
 	"backtrace" : 2,
@@ -183,7 +183,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -std:c++17 -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi"
 				},
 				{
 					"backtrace" : 6,
@@ -427,15 +427,15 @@
 		},
 		{
 			"backtrace" : 4,
+			"id" : "vorbisfile::@692b0ee2b61df6760d20"
+		},
+		{
+			"backtrace" : 4,
 			"id" : "vorbisenc::@692b0ee2b61df6760d20"
 		},
 		{
 			"backtrace" : 4,
 			"id" : "vorbis::@692b0ee2b61df6760d20"
-		},
-		{
-			"backtrace" : 4,
-			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
@@ -522,7 +522,7 @@
 		}
 	],
 	"name" : "sfml-audio",
-	"nameOnDisk" : "sfml-audio-s.lib",
+	"nameOnDisk" : "sfml-audio-s-d.lib",
 	"paths" : 
 	{
 		"build" : "_deps/sfml-build/src/SFML/Audio",

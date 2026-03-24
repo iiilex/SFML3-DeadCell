@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "RelWithDebInfo/Dead_Cell.exe"
+			"path" : "MinSizeRel/Dead_Cell.exe"
 		},
 		{
-			"path" : "RelWithDebInfo/Dead_Cell.pdb"
+			"path" : "MinSizeRel/Dead_Cell.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -133,7 +133,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -std:c++20 -MD -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O1 /Ob1 /DNDEBUG -std:c++20 -MD"
 				}
 			],
 			"defines" : 
@@ -179,19 +179,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "sfml-graphics::@98af38147d5fa7e70f61"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "sfml-window::@5730451e331e3690ae65"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "sfml-system::@8cb1db2982443611e568"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "sfml-graphics::@98af38147d5fa7e70f61"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
 		},
 		{
 			"backtrace" : 3,
@@ -202,8 +198,16 @@
 			"id" : "sfml-audio::@a153e5727587c53fce98"
 		},
 		{
+			"backtrace" : 2,
+			"id" : "freetype::@d06f9f5ffc3cc0b4bd77"
+		},
+		{
 			"backtrace" : 3,
 			"id" : "FLAC::@d572677c3819035d9b3d"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"backtrace" : 3,
@@ -212,10 +216,6 @@
 		{
 			"backtrace" : 3,
 			"id" : "vorbis::@692b0ee2b61df6760d20"
-		},
-		{
-			"backtrace" : 3,
-			"id" : "vorbisfile::@692b0ee2b61df6760d20"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
@@ -227,11 +227,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -MD -Zi",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O1 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO",
 				"role" : "flags"
 			},
 			{
@@ -240,17 +240,17 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\sfml-graphics-s.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\sfml-graphics-s.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\sfml-audio-s.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\sfml-audio-s.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\sfml-window-s.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\sfml-window-s.lib",
 				"role" : "libraries"
 			},
 			{
@@ -265,12 +265,12 @@
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\freetype.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\freetype.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\sfml-system-s.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\sfml-system-s.lib",
 				"role" : "libraries"
 			},
 			{
@@ -280,27 +280,27 @@
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\vorbisfile.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\vorbisfile.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\vorbisenc.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\vorbisenc.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\vorbis.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\vorbis.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\FLAC.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\FLAC.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 13,
-				"fragment" : "_deps\\sfml-build\\lib\\RelWithDebInfo\\ogg.lib",
+				"fragment" : "_deps\\sfml-build\\lib\\MinSizeRel\\ogg.lib",
 				"role" : "libraries"
 			},
 			{

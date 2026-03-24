@@ -45,7 +45,7 @@ class AnimSystem
         void registerPlayer(std::string& path, std::string& name,std::string& sourceName, int isLoop, int isReversed,  int isTransition, std::string& nextAnim);
         void changePlayer(std::string newPlayerName);
         sf::Sprite& updatePlayer(float dt);
-        sf::Sprite getCurrentSprite();
+        sf::Sprite getCurrentSprite(bool flag);
         bool isFinished();
         void turnToNextAction();
 };

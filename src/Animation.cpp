@@ -1,7 +1,7 @@
 #include<Animation.h>
 #include<filesystem>
 
-const float frame_duration = 0.028;
+const float frame_duration = 0.025;
 
 AnimPlayer::AnimPlayer(): 
 isFinished(false),
@@ -115,9 +115,13 @@ sf::Sprite& AnimSystem::updatePlayer(float dt)
     return animPlayers[nowAnimState].update(dt);
 }
 
-sf::Sprite AnimSystem::getCurrentSprite()
+sf::Sprite AnimSystem::getCurrentSprite(bool flag)
 {
-    return animPlayers[nowAnimState].nowSprite.value();
+    auto res = animPlayers[nowAnimState].nowSprite.value();
+    res.setOrigin({res.getLocalBounds().size.x / 2.f, res.getLocalBounds().size.y / 2.f});
+    if(flag)  res.setScale({3.f,3.f});
+    else  res.setScale({-3.f,3.f});
+    return res;
 }
 
 bool AnimSystem::isFinished()
