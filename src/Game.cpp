@@ -34,11 +34,15 @@ void Game::run()
         {
             player->leftPressed(true);
         }
+        else
+        {
+            player->leftPressed(false);
+            player->leftPressed(false);
+        }
         
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::S))
         {
-            std::cout<<"get!\n";
             player->crouchPressed(true);
         }
         else
