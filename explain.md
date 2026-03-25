@@ -111,32 +111,16 @@ Lv2.下蹲
 Lv1.跑步
 Lv0.静止
 
-实际上，一个"动作"包含不止一个动画区块，所以最好设置一些广义上"概括"的动作，
-并且将各个小的细分动作和这个大动作统一起来，
-也就是建立 小的细分动作名称 - 大的动作状态 - 动作优先级 的映射
+两个通道, playerAnimSystem 和 playerLoopAnimSystem
 
-实际上，处理大的动作应该是 Player 做的，
-而不是 AnimSystem。
-
-明天要想的东西:
-
-如何保持 AnimSystem的复用性?
-
-在 Player.cpp 中处理, 找到现在的动画阶段，并且和之前的比较
-假如可以强制更新，那么更新:
-   写一个函数(或者一个映射)，输入两个 PlayerAnimState 类型变量 (nowState, nextState),
-   返回一个 string 代表 当前播放器应当播放哪个名字的动作
-   然后 nowState = nextState
-
-然后执行 AnimSystem 的 update
-   其实就是 AnimSystem 当前管理的 AnimPlayer 的 update
-   直接调用就行了
-
-最后 再给 AnimSystem 写个方法，返回这一帧的 sf::Sprite 用于渲染
+前者存放非循环动作,包括 过渡动画/瞬时动画.
+后者存放循环动作.
 
 
+明日任务:
 
-
+1. 把 PlayerState 中的状态分离，比如瞬时状态要分离成 isStartJump 和 isRising 之类的
+2. 在 loopAnimation里面加入小状态机，绘制过渡动画
 
 
 

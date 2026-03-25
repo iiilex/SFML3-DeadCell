@@ -22,23 +22,26 @@ public:
     bool isRising;      // 正在上升
     bool isCrouch;      // 正在蹲下
     bool isRolling;     // 正在翻滚
+    bool isStartJump;   // 开始跳跃
     bool isAttack;      // 正在攻击
     bool isCounter;     // 正在盾反
     bool isFacingRight; // 面向右边
+    bool isStartRoll;   // 开始翻滚
     PlayerState();
 };
 
 enum class PlayerAnimAction
 {
-    Counter,
-    Roll, Attack,
-    Jump, Fall,
-    Crouch,
-    Run,
-    Idle
+    // 仅仅是一些瞬时动作
+    Counter = 5,
+    Attack = 4,
+    Roll = 3,
+    None = 0
 };
 
-int getPriority(const PlayerAnimAction a);
+enum class PlayerLoopAnimAction
+{
 
-std::string getPlayerAnimActionName(PlayerAnimAction thisAction);
-std::string getTransition(const PlayerAnimAction currentAction, const PlayerAnimAction nextAction);
+};
+
+int toInt(PlayerAnimAction); // 辅助函数

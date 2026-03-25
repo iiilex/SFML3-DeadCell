@@ -1,5 +1,6 @@
 #include<Animation.h>
 #include<filesystem>
+#include<iostream>
 
 const float frame_duration = 0.025;
 
@@ -10,12 +11,12 @@ frameId(0),
 timeAccumulator(0.f)
 {}
 
-sf::Sprite& AnimPlayer::update(float dt)
+void AnimPlayer::update(float dt)
 {
     if(isFinished && !myAction.isLoop || isNewCalling)
     {
         isNewCalling = false;
-        return nowSprite.value();
+        return ;
     }
     timeAccumulator += dt;
     while(timeAccumulator >= frame_duration)
@@ -37,7 +38,7 @@ sf::Sprite& AnimPlayer::update(float dt)
         }
     }
     nowSprite.value().setTexture(myAction.actionSequence[frameId], true);
-    return nowSprite.value();
+    return ;
 }
 
 void AnimPlayer::reset()
@@ -48,9 +49,14 @@ void AnimPlayer::reset()
     timeAccumulator = 0;
 }
 
+sf::Sprite& AnimPlayer::getSprite()
+{
+    return nowSprite.value();
+}
+
 AnimSystem::AnimSystem() :
 animPlayerCnt(0),
-nowAnimState("idle")
+nowAnimState("none")
 {}
 
 // 辅助函数：统计地址下图片的数量
@@ -106,18 +112,27 @@ void AnimSystem::registerPlayer(std::string& path, std::string& name, std::strin
 
 void AnimSystem::changePlayer(std::string newPlayerName)
 {
+    if(animPlayers.find(newPlayerName) == animPlayers.end() )
+    {
+        nowAnimState = "none";
+        return ;
+    }
+
+    if(nowAnimState != newPlayerName)
+        animPlayers[newPlayerName].reset();
     nowAnimState = newPlayerName;
-    animPlayers[nowAnimState].reset();
 }
 
-sf::Sprite& AnimSystem::updatePlayer(float dt)
+void AnimSystem::updatePlayer(float dt)
 {
-    return animPlayers[nowAnimState].update(dt);
+    if(nowAnimState == "none")  return ;
+    animPlayers[nowAnimState].update(dt);
 }
 
 sf::Sprite AnimSystem::getCurrentSprite(bool flag)
 {
-    auto res = animPlayers[nowAnimState].nowSprite.value();
+    auto res = animPlayers[nowAnimState].getSprite();
+    res.setPosition(spritePosition);
     res.setOrigin({res.getLocalBounds().size.x / 2.f, res.getLocalBounds().size.y / 2.f});
     if(flag)  res.setScale({3.f,3.f});
     else  res.setScale({-3.f,3.f});
@@ -132,5 +147,24 @@ bool AnimSystem::isFinished()
 void AnimSystem::turnToNextAction()
 {
     nowAnimState = animPlayers[nowAnimState].myAction.nextAction;
-    if(nowAnimState == "none")  nowAnimState = "idle";
+}
+
+bool AnimSystem::isEmpty()
+{
+    return nowAnimState == "none";
+}
+
+void AnimSystem::setPos(sf::Vector2f position)
+{
+    spritePosition = position;
+}
+
+sf::Vector2f AnimSystem::getPos()
+{
+    return spritePosition;
+}
+
+std::string AnimSystem::getName()
+{
+    return nowAnimState;
 }

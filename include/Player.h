@@ -12,13 +12,13 @@
 
 const float default_duration = 0.08;
 const float default_velocity_x = 800;
-const float default_rolling_velocity_x = 1400;
+const float default_rolling_velocity_x = 1800;
 const float default_velocity_y = -1000;
 
 class InputSection
 {
 public:
-    std::deque<std::pair<InputAction, int>> inputBuffer;
+    std::deque<std::pair<InputAction, float>> inputBuffer;
     int bufferCnt;
     bool isLeftPressed;
     bool isRightPressed;
@@ -32,7 +32,9 @@ protected:
     InputSection section;
     PlayerState state;
     PhysicsData playerData;
-    AnimSystem playerAnimSystem;
+
+    AnimSystem playerAnimSystem; //非循环动画管理
+    AnimSystem playerLoopAnimSystem; // 循环动画管理
 
     PlayerAnimAction currentAction;
 
@@ -49,14 +51,18 @@ public:
     void counter();
 
     // 当前动作相关
-    void insertAction(const InputAction newAction, const float duration = default_duration);
-    void updateInputSection(float dt);
-    InputAction getCurrentInputAction();
-    void updatePlayerState();
-    void reupdatePlayerState(const PhysicsData& data);
-    PlayerAnimAction getNextAnimAction();
+    void insertAction(const InputAction newAction, const float duration = default_duration); // 插入动作
+    void updateInputSection(float dt); // 更新当前输入缓冲序列
+    InputAction getCurrentInputAction(); // 得到输入序列中应该处理的动作
+    void updatePlayerState(); // 更新角色当前的一系列状态
+    void reupdatePlayerState(const PhysicsData& data); // 通过物理规则再校正
     // 动画相关
-    void initAnimSystem();
+    void initAnimSystem(); // 初始化动画系统
+    void draw(sf::RenderWindow& window); // 绘制角色
+    void updatePlayerAnimSystem(float dt); // 更新非循环动画机
+    void updatePlayerLoopAnimSystem(float dt); // 更新循环动画机
+    sf::Sprite getCurrentPlayerSprite(); // 得到当前角色的精灵图
+
     void updatePlayer(float dt, PhysicsSystem& system, sf::RenderWindow& window);
 };
 

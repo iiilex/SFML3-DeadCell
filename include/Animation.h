@@ -30,8 +30,10 @@ class AnimPlayer
         std::optional<sf::Sprite> nowSprite; // 目前的精灵图
         AnimPlayer();
         void reset();
-        sf::Sprite& update(float dt);
+        void update(float dt);
         void registerAction(std::string& path);
+        sf::Sprite& getSprite();
+        
 }; // 作为资源
 
 class AnimSystem
@@ -40,12 +42,17 @@ class AnimSystem
         int animPlayerCnt;
         std::unordered_map<std::string, AnimPlayer> animPlayers;
         std::string nowAnimState;
+        sf::Vector2f spritePosition;
     public:
         AnimSystem();
         void registerPlayer(std::string& path, std::string& name,std::string& sourceName, int isLoop, int isReversed,  int isTransition, std::string& nextAnim);
         void changePlayer(std::string newPlayerName);
-        sf::Sprite& updatePlayer(float dt);
+        void updatePlayer(float dt);
         sf::Sprite getCurrentSprite(bool flag);
         bool isFinished();
         void turnToNextAction();
+        bool isEmpty(); // 判断当前动画系统是否为空,就是指向空
+        void setPos(sf::Vector2f position);
+        sf::Vector2f getPos();
+        std::string getName();
 };
